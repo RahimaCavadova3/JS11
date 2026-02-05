@@ -1,11 +1,38 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="src/output.css" rel="stylesheet">
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/output.css">
+    <title>Fruitables</title>
+    <style>
+    body {
+      position: relative;
+      height: 100%;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-button-next{
+        color: white;
+    }
+    .swiper-button-prev{
+        color: white;
+    }
     .fixdesktop{
     width: 100%;
     position: fixed;
@@ -19,12 +46,14 @@
 </head>
 <body>
     <header>
-        <div class="container-full mobil lg:hidden flex flex-row items-center justify-between p-10">
-            <img class="w-36" src="img/logo.png" alt="logo">
-            <i onclick="menuOpen()" class="fa-solid fa-bars text-2xl text-[#81c408]"></i>
+        <div class="mobil container-full lg:hidden flex flex-row justify-between items-center p-5">
+            <h1 class="text-3xl text-[#81c408] font-bold">Fruitables</h1>
+            <span class="border border-[#e5e5e5] w-10 h-8 flex items-center justify-center rounded-[8px]">
+                <a onclick="menuOpen()" class="fa-solid fa-bars text-xl text-[#81c408]"></a>
+            </span>
         </div>
-        <div id="menubar" style="left: -100%" class=" bg-[#81c408] fixed top-0 h-[100vh] w-[50%]">
-            <span onclick="menuOpen()" class=" flex justify-end items-center px-3 text-2xl text-white">x</span>
+        <div id="menubar" style="left: -100%" class="z-10 bg-[#81c408] fixed top-0 h-[100vh] w-[50%]">
+            <span onclick="menuOpen()" class="flex justify-end items-center px-3 text-2xl text-white">x</span>
             <ul class="flex flex-col items-center justify-center gap-5 py-5">
                 <li><a class="text-white" href="">Home</a></li>
                 <li><a class="text-white" href="">Shop</a></li>
@@ -33,57 +62,265 @@
                 <li><a class="text-white" href="">Contact</a></li>
             </ul>
         </div>
-
-        <div id="fixdesktop" class="desktop bg-white p-10 container-full hidden lg:flex flex-row items-center justify-between">
-            <img class="w-48" src="img/logo.png" alt="">
-            <ul class="flex flex-row gap-5">
+        <div id="fixdesktop" class="desktop bg-white p-10 z-10 container-full hidden lg:flex flex-row justify-between items-center py-10 px-20">
+            <h1 class="text-4xl font-bold text-[#81c408]">Fruitables</h1>
+            <ul class="flex flex-row gap-6">
                 <li><a class="text-[#81c408]" href="">Home</a></li>
-                <li><a class="hover:text-[#81c408] text-[#6c757d]" href="">Shop</a></li>
-                <li><a class="hover:text-[#81c408] text-[#6c757d]" href="">Shop Detail</a></li>
-                <li><a class="hover:text-[#81c408] text-[#6c757d]" href="">Pages</a></li>
-                <li><a class="hover:text-[#81c408] text-[#6c757d]" href="">Contact</a></li>
+                <li><a class="text-[#6c757d] hover:text-[#81c408] duration-500" href="">Shop</a></li>
+                <li><a class="text-[#6c757d] hover:text-[#81c408] duration-500" href="">Shop Detail</a></li>
+                <li><a class="text-[#6c757d] hover:text-[#81c408] duration-500" href="">Pages</a></li>
+                <li><a class="text-[#6c757d] hover:text-[#81c408] duration-500" href="">Contact</a></li>
             </ul>
-            <div class="flex flex-row gap-3">
-                <i class="fa-solid fa-magnifying-glass text-[#81c408] text-3xl"></i>
-                <i class="fa-solid fa-bag-shopping text-[#81c408] text-3xl"></i>
-                <i class="fa-solid fa-user text-[#81c408] text-3xl"></i>
+            <div class="flex flex-row items-center gap-5">
+                <span class="border border-[#ffb524] hover:bg-[#ffb525] duration-700 w-[40px] h-[40px] flex items-center justify-center rounded-[50px]"><a class="fa-solid fa-magnifying-glass text-[15px] text-[#81c408]"></a></span>
+                <a class="fa-solid fa-bag-shopping text-2xl text-[#81c408]"></a>
+                <a class="fa-solid fa-user text-2xl text-[#81c408]"></a>
             </div>
         </div>
     </header>
     <main>
-        <div class="container-full bg-[url('../img/bg-foto.jpg')] bg-cover bg-center p-10 flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-24">
-            <div class="flex flex-col justify-center gap-3">
-                <h5 class="text-xl lg:text-2xl text-[#feb932]">100% Organic Foods</h5>
-                <h1 class="text-4xl lg:text-6xl text-[#81c408]">Organic Veggies & Fruits Foods</h1>
-                <input class="border-2 border-[#ffb524] p-2 lg:p-3 w-full lg:w-[50%] rounded-3xl outline-0" type="text" placeholder="Search"/>
+        <div class="container-full bg-[url('../img/bg-foto.jpg')] bg-cover bg-center lg:py-20 lg:px-20 p-5 flex flex-col lg:flex-row justify-between items-center">
+            <div class="flex flex-col gap-5 lg:w-[60%]">
+                <h6 class="text-xl lg:text-2xl text-[#ffb524] font-bold">100% Organic Foods</h6>
+                <h1 class="text-4xl lg:text-7xl font-bold text-[#81c408]">Organic Veggies & Fruits Foods</h1>
+                <input class="w-[60%] border-2 border-[#ffb524] p-3 rounded-4xl outline-0" type="text" placeholder="Search"/>
+                <button></button>
             </div>
+            <div class="swiper lg:w-[40%] w-full mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/foto-1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="img/foto-2.png" alt=""></div>
+                </div>
+                <div class="swiper-button-next border border-white w-[100px] h-[100px] hover:bg-[#8dc907] rounded-[50px]"></div>
+                <div class="swiper-button-prev border border-white w-[100px] h-[100px] hover:bg-[#8dc907] rounded-[50px]"></div>
+            </div>
+        </div>
+
+        <div class="cards p-5 lg:py-10 lg:px-20 flex flex-col lg:flex-row gap-6">
+            <div class="bg-[#f4f6f8] lg:w-[25%] flex flex-col items-center justify-center h-[250px] rounded-2xl gap-2">
+                <span class="border-[#ffb524] bg-[#ffb524] w-[100px] h-[100px] rounded-[50px] flex justify-center items-center"><a class="fa-solid fa-car-side text-4xl text-white"></a></span>
+                <h6 class="text-2xl text-[#45595b]">Free Shipping</h6>
+                <p class="text-xl text-[#747d88]">Free on order over $300</p>
+            </div>
+            <div class="bg-[#f4f6f8] lg:w-[25%] flex flex-col items-center justify-center h-[250px] rounded-2xl gap-2">
+                <span class="border-[#ffb524] bg-[#ffb524] w-[100px] h-[100px] rounded-[50px] flex justify-center items-center"><a class="fa-solid fa-user-shield text-4xl text-white"></a></span>
+                <h6 class="text-2xl text-[#45595b]">Security Payment</h6>
+                <p class="text-xl text-[#747d88]">100% security payment</p>
+            </div>
+            <div class="bg-[#f4f6f8] lg:w-[25%] flex flex-col items-center justify-center h-[250px] rounded-2xl gap-2">
+                <span class="border-[#ffb524] bg-[#ffb524] w-[100px] h-[100px] rounded-[50px] flex justify-center items-center"><a class="fa-solid fa-right-left text-4xl text-white"></a></span>
+                <h6 class="text-2xl text-[#45595b]">30 Day Return</h6>
+                <p class="text-xl text-[#747d88]">30 day money guarantee</p>
+            </div>
+            <div class="bg-[#f4f6f8] lg:w-[25%] flex flex-col items-center justify-center h-[250px] rounded-2xl gap-2">
+                <span class="border-[#ffb524] bg-[#ffb524] w-[100px] h-[100px] rounded-[50px] flex justify-center items-center"><a class="fa-solid fa-phone text-4xl text-white"></a></span>
+                <h6 class="text-2xl text-[#45595b]">24/7 Support</h6>
+                <p class="text-xl text-[#747d88]">Support every time fast</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row lg:justify-between items-center lg:py-10 lg:px-20 gap-5 p-5">
             <div>
-                <img class="w-full lg:w-[80%]" src="img/foto-1.jpg" alt="">
-            </div> 
+                <h3 class="text-[#45595b] text-4xl font-bold">Our Organic Products</h3>
+            </div>
+            <div class="flex flex-row flex-wrap gap-5">
+                <span class="border w-[120px] text-center py-1 rounded-2xl text-white bg-[#ffb524]"><a href="">All Products</a></span>
+                <span class="border-0 w-[120px] text-center py-1 rounded-2xl text-[#45595b] bg-[#f4f6f8]"><a href="">Vegetables</a></span>
+                <span class="border-0 w-[120px] text-center py-1 rounded-2xl text-[#45595b] bg-[#f4f6f8]"><a href="">Fruits</a></span>
+                <span class="border-0 w-[120px] text-center py-1 rounded-2xl text-[#45595b] bg-[#f4f6f8]"><a href="">Bread</a></span>
+                <span class="border-0 w-[120px] text-center py-1 rounded-2xl text-[#45595b] bg-[#f4f6f8]"><a href="">Meat</a></span>
+            </div>
         </div>
-        <div class="flex flex-col gap-5 lg:flex-row justify-between items-center py-10 px-10">
-            <div class="w-full lg:w-[25%] h-[200px] bg-[#f4f6f8] border-0 flex flex-col items-center justify-center rounded-2xl">
-                <i class="fa-solid fa-car-side text-[#ffb524] text-4xl"></i>
-                <h6 class="text-[#45595b]">Free Shipping</h6>
-                <p class="text-[#747d88]">Free on order over $300</p>
+
+        <div id="products" class="products lg:py-10 lg:px-20 flex lg:flex-row flex-col justify-center items-center p-5 flex-wrap gap-6"></div>
+
+        <div class="products lg:py-10 lg:px-20 p-5 flex lg:flex-row flex-col gap-6">
+            <div class="border-1 border-[#ffb524] w-full lg:w-[33.33%] rounded-2xl overflow-hidden relative">
+                <img class="object-cover" src="https://themewagon.github.io/fruitables/img/featur-1.jpg" alt="">
+                <div class="border-[80px] border-[#ffb524]"></div>
+                <div class="absolute bg-[#81c408] rounded-xl bottom-[100px] left-[100px] border-0 w-[250px] text-center p-5">
+                    <h6 class="text-xl text-white font-bold">Fresh Apples</h6>
+                    <h2 class="text-[#45595b] text-2xl font-bold">20% OFF</h2>
+                </div>
             </div>
-            <div class="w-full lg:w-[25%] h-[200px] bg-[#f4f6f8] border-0 flex flex-col items-center justify-center rounded-2xl">
-                <i class="fa-solid fa-shield-halved text-[#ffb524] text-4xl"></i>
-                <h6 class="text-[#45595b]">Security Payment</h6>
-                <p class="text-[#747d88]">100% security payment</p>
+            <div class="border-1 border-[#45595b] w-full lg:w-[33.33%] rounded-2xl overflow-hidden relative">
+                <img class="object-cover" src="https://themewagon.github.io/fruitables/img/featur-2.jpg" alt="">
+                <div class="border-[80px] border-[#45595b]"></div>
+                <div class="absolute bg-white rounded-xl bottom-[100px] left-[100px] border-0 w-[250px] text-center p-5">
+                    <h6 class="text-xl text-[#81c408] font-bold">Tasty Fruits</h6>
+                    <h2 class="text-[#45595b] text-2xl font-bold">Free delivery</h2>
+                </div>
             </div>
-            <div class="w-full lg:w-[25%] h-[200px] bg-[#f4f6f8] border-0 flex flex-col items-center justify-center rounded-2xl">
-                <i class="fa-solid fa-arrow-right-arrow-left text-[#ffb524] text-4xl"></i>
-                <h6 class="text-[#45595b]">30 Day Return</h6>
-                <p class="text-[#747d88]">30 day money guarantee</p>
+            <div class="border-1 border-[#81c408] w-full lg:w-[33.33%] rounded-2xl overflow-hidden relative">
+                <img class="object-cover" src="https://themewagon.github.io/fruitables/img/featur-3.jpg" alt="">
+                <div class="border-[80px] border-[#81c408]"></div>
+                <div class="absolute bg-[#ffb524] rounded-xl bottom-[100px] left-[100px] border-0 w-[250px] text-center p-5">
+                    <h6 class="text-xl text-white font-bold">Exotic Vegitable</h6>
+                    <h2 class="text-[#45595b] text-2xl font-bold">Discount 30$</h2>
+                </div>
             </div>
-            <div class="w-full lg:w-[25%] h-[200px] bg-[#f4f6f8] border-0 flex flex-col items-center justify-center rounded-2xl">
-                <i class="fa-solid fa-phone text-[#ffb524] text-4xl"></i>
-                <h6 class="text-[#45595b]">24/7 Support</h6>
-                <p class="text-[#747d88]">Support every time fast</p>
-            </div>    
         </div>
+        
+        <h3 class="text-[#45595b] text-4xl font-bold lg:py-0 lg:px-20 lg:py-20 p-5">Fresh Organic Vegetables</h3>
+        <div id="organic" class="organic lg:py-0 lg:px-20 flex lg:flex-row flex-col items-center p-5 gap-6"></div>
+
+        <div class="store bg-[#ffb524] flex flex-col lg:flex-row lg:py-10 lg:px-20 my-40 p-5">
+            <div class="flex flex-col justify-center gap-3">
+                <h1 class="text-4xl lg:text-6xl text-white font-bold">Fresh Exotic Fruits</h1>
+                <h2 class="text-4xl text-[#45595b] lg:text-6xl">in Our Store</h2>
+                <p class="text-[#45595b] lg:text-[22px]">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
+                <button class="border border-white w-30 p-3 rounded-3xl text-[#45595b] hover:bg-[#81c408] duration-500">BUY</button>
+            </div>
+            <img src="https://themewagon.github.io/fruitables/img/baner-1.png" alt="">
+        </div>
+
+            <!--Bestseller Product -->
+            <h1 class="text-center text-4xl lg:text-6xl text-[#45595b] font-bold pb-3 p-5">Bestseller Products</h1>
+            <p class="text-center text-[#747d88] text-[18px] lg:text-xl p-5">Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
+            <div id="bestseller" class="lg:px-20 lg:py-10 p-5 flex flex-col lg:flex-row flex-wrap gap-6 justify-between items-center"></div>
+
+            <div id="bestseller2" class=" flex flex-col lg:flex-row lg:py-10 lg:px-20 gap-3 p-5"></div>
+
+            <div class="lg:py-10 lg:px-20 bg-[#f4f6f8] lg:mx-20 rounded-xl flex flex-col lg:flex-row gap-6 p-5">
+                <div class="border-0 rounded-2xl w-full lg:w-[25%] flex flex-col justify-center items-center bg-white h-[250px] gap-5">
+                    <a class="fa-solid fa-users text-[#ffb524] text-5xl"></a>
+                    <h4 class="uppercase text-[#81c408] text-xl font-bold">satisfied customers</h4>
+                    <h3 class="text-[#45595b] text-3xl font-bold">1963</h3>
+                </div>
+                <div class="border-0 rounded-2xl w-full lg:w-[25%] flex flex-col justify-center items-center bg-white h-[250px] gap-5">
+                    <a class="fa-solid fa-users text-[#ffb524] text-5xl"></a>
+                    <h4 class="uppercase text-[#81c408] text-xl font-bold">quality of service</h4>
+                    <h3 class="text-[#45595b] text-3xl font-bold">99%</h3>
+                </div>
+                <div class="border-0 rounded-2xl w-full lg:w-[25%] flex flex-col justify-center items-center bg-white h-[250px] gap-5">
+                    <a class="fa-solid fa-users text-[#ffb524] text-5xl"></a>
+                    <h4 class="uppercase text-[#81c408] text-xl font-bold">satisfied customers</h4>
+                    <h3 class="text-[#45595b] text-3xl font-bold">33</h3>
+                </div>
+                <div class="border-0 rounded-2xl w-full lg:w-[25%] flex flex-col justify-center items-center bg-white h-[250px] gap-5">
+                    <a class="fa-solid fa-users text-[#ffb524] text-5xl"></a>
+                    <h4 class="uppercase text-[#81c408] text-xl font-bold">Available Products</h4>
+                    <h3 class="text-[#45595b] text-3xl font-bold">789</h3>
+                </div>
+            </div>
+
+            <!--Our Testimonial-->
+            <div class="pt-30 lg:px-20">
+                <h6 class="text-center lg:text-2xl text-xl text-[#81c408] font-bold pb-2">Our Testimonial</h6>
+                <h1 class="lg:text-5xl text-center text-[#45595b] font-bold text-4xl">Our Client Saying!</h1>
+            </div>
+            <div class="lg:py-10 lg:px-20 flex flex-col lg:flex-row gap-5 p-5">
+                <div class="border-0 rounded-xl w-full lg:w-[50%] p-5 bg-[#f4f6f8]">
+                    <p class="text-[#747d88] pb-3">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    <hr class="border border-[#ffb524]"/>
+                    <div class="flex flex-row gap-10 py-2 pt-3">
+                        <img class="border rounded-xl" src="https://themewagon.github.io/fruitables/img/testimonial-1.jpg" alt="">
+                        <div class="flex flex-col gap-2">
+                            <h4 class="text-[#45595b] text-2xl">Client Name</h4>
+                            <p class="text-[#747d88] text-[18px]">Profession</p>
+                            <div>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-0 rounded-xl w-full lg:w-[50%] p-5 bg-[#f4f6f8]">
+                    <p class="text-[#747d88] pb-3">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    <hr class="border border-[#ffb524]"/>
+                    <div class="flex flex-row gap-10 py-2 pt-3">
+                        <img class="border rounded-xl" src="https://themewagon.github.io/fruitables/img/testimonial-1.jpg" alt="">
+                        <div class="flex flex-col gap-2">
+                            <h4 class="text-[#45595b] text-2xl">Client Name</h4>
+                            <p class="text-[#747d88] text-[18px]">Profession</p>
+                            <div>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                                <a class="fa-solid fa-star text-[#81c408]"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </main>
-    <script src="App.js"></script>
+    <footer class="bg-[#45595b]">
+        <div class="container-full flex lg:flex-row flex-col lg:justify-between lg:items-center lg:px-20 lg:py-10 gap-3 p-5">
+            <div>
+                <h2 class="text-[#81c408] text-4xl">Fruitables</h2>
+                <h6 class="text-[#ffb524]">Fresh products</h6>
+            </div>
+            <input class="lg:w-[40%] w-[70%] p-3 rounded-3xl border-0 outline-0 bg-white" type="text" placeholder="Your Email"/>
+            <div class="flex flex-row gap-5">
+                <span class="border-[#ffb524] border hover:bg-[#ffb524] text-[#ffb524] hover:text-black duration-500 w-[50px] h-[50px] flex items-center justify-center rounded-[50px]"><a class="fa-brands fa-twitter"></a></span>
+                <span class="border-[#ffb524] border hover:bg-[#ffb524] text-[#ffb524] hover:text-black duration-500 w-[50px] h-[50px] flex items-center justify-center rounded-[50px]"><a class="fa-brands fa-facebook-f"></a></span>
+                <span class="border-[#ffb524] border hover:bg-[#ffb524] text-[#ffb524] hover:text-black duration-500 w-[50px] h-[50px] flex items-center justify-center rounded-[50px]"><a class="fa-brands fa-youtube"></a></span>
+                <span class="border-[#ffb524] border hover:bg-[#ffb524] text-[#ffb524] hover:text-black duration-500 w-[50px] h-[50px] flex items-center justify-center rounded-[50px]"><a class="fa-brands fa-linkedin-in"></a></span>
+            </div>
+        </div>
+        <hr class="border border-[#ffb524] lg:mx-20 lg:my-10" />
+        <div class="lg:px-20 flex lg:flex-row flex-col justify-between lg:items-center p-5 gap-6">
+            <div class="lg:w-[25%] w-full flex flex-col gap-3">
+                <h3 class="text-white text-2xl">Why People Like us!</h3>
+                <p class="text-[#a2acad] text-[18px]">typesetting, remaining essentially unchanged. It was popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
+                <button class="w-[120px] rounded-3xl border-[#ffb524] hover:bg-[#ffb524] hover:text-white text-[#81c408] duration-500 border p-2">Read More</button>
+            </div>
+            <div class="lg:w-[25%] w-full">
+                <h3 class="text-white text-2xl pb-3">Shop Info</h3>
+                <ul class="flex flex-col gap-3">
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">About Us</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Contact Us</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Privacy Policy</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Terms & Condition</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Returm Policy</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">FAQs Help</a></li>
+                </ul>
+            </div>
+            <div class="lg:w-[25%] w-full">
+                <h3 class="text-white text-2xl pb-3">Account</h3>
+                <ul class="flex flex-col gap-3">
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">My Account</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Shop Details</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Shopping Cart</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Whishlist</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Order History</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">International Orders</a></li>
+                </ul>
+            </div>
+            <div class="lg:w-[25%] w-full">
+                <h3 class="text-white text-2xl pb-3">Contact</h3>
+                <ul class="flex flex-col gap-3">
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Address: 1429 Netus Rd, NY 48247</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Email: Example@gmail.com</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Phone: +0123 4567 8910</a></li>
+                    <li><a class="text-[#a2acad] hover:text-[#ffb524] duration-500 text-[18px]" href="">Payment Accepted</a></li>
+                </ul>
+                <img class="pt-3" src="https://themewagon.github.io/fruitables/img/payment.png" alt="">
+            </div>
+        </div>
+        <div class="lg:px-20 lg:py-10 flex lg:flex-row flex-col justify-between lg:items-center text-center p-5 gap-3">
+            <p class="text-[18px] text-white">© <a class="hover:text-[#679d06] text-[#81c408]">Your Site Name</a>, All right reserved.</p>
+            <p class="text-[18px] text-white">Designed By <a class="hover:text-[#679d06] text-[#81c408] underline">HTML Codex</a> Distributed <a class="hover:text-[#679d06] text-[#81c408] underline">By ThemeWagon</a></p>
+        </div>
+    </footer> 
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <script src="js/Data.js"></script>
+  <script src="js/App.js"></script>
 </body>
 </html>
